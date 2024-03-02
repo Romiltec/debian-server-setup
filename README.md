@@ -29,5 +29,5 @@ To use the installation script on your Debian system, follow these steps:
 
    ```bash
    # Using wget
-   wget https://raw.githubusercontent.com/Romiltec/debian-setup-script/master/rm_default_install_script.sh
+   wget https://raw.githubusercontent.com/Romiltec/debian-server-setup/master/rm_default_install_script.sh
 
