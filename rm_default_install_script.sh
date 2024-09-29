@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Ensure the script is run as root or with sudo
 if [ "$(id -u)" != "0" ]; then
