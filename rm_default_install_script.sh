@@ -19,6 +19,10 @@ apt-get install -y git htop screen
 echo "Installing dependencies..."
 apt-get install -y curl build-essential
 
+# Install PHP-FPM
+echo "Installing PHP-FPM..."
+apt-get install -y php-fpm
+
 # Install Composer
 echo "Installing Composer..."
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -62,6 +66,23 @@ apt-get install -y restic
 # Update Restic to the latest version
 echo "Updating Restic to the latest version..."
 restic self-update
+
+# Install Docker
+echo "Installing Docker..."
+sh <(curl -sSL https://get.docker.com)
+
+# Install Portainer
+echo "Installing Portainer..."
+docker volume create portainer_data
+docker run -d \
+  -p 8000:8000 \
+  -p 9443:9443 \
+  --name=portainer \
+  --restart=always \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v portainer_data:/data \
+  portainer/portainer-ce:latest
+
 
 # Script End
 echo "Installation of Composer, WP-CLI, Node.js, n, Yarn, pnpm, Restic, Git, htop, and screen is complete."
